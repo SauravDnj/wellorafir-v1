@@ -10,8 +10,8 @@
   --accent:       #0EA5E9;
   --accent-light: #38BDF8;
   --accent-pale:  #E0F2FE;
-  --accent-gold:  #F59E0B;
-  --accent-green: #10B981;
+  --accent-gold:  #06B6D4;
+  --accent-green: #8B5CF6;
   --border:       #BAE6FD;
   --shadow-color: rgba(14,165,233,0.18);
   --nav-bg:       rgba(255,255,255,0.96);
@@ -28,8 +28,8 @@
   --accent:       #38BDF8;
   --accent-light: #7DD3FC;
   --accent-pale:  #0C2A40;
-  --accent-gold:  #FBBF24;
-  --accent-green: #34D399;
+  --accent-gold:  #22D3EE;
+  --accent-green: #A78BFA;
   --border:       #1E3A5F;
   --shadow-color: rgba(56,189,248,0.22);
   --nav-bg:       rgba(10,22,40,0.96);
@@ -62,8 +62,8 @@ body {
 .btn-outline { background:transparent; color:var(--accent); padding:0.8rem 2rem; border-radius:50px; font-weight:700; font-size:0.95rem; display:inline-flex; align-items:center; gap:0.5rem; text-decoration:none; border:2px solid var(--accent); cursor:pointer; transition:all 0.25s; }
 .btn-outline:hover { background:var(--accent); color:#fff; transform:translateY(-3px); box-shadow:0 12px 35px var(--shadow-color); }
 
-.card-3d { background:var(--bg-card); border:1px solid var(--border); border-radius:1.5rem; transition:transform 0.35s cubic-bezier(.34,1.56,.64,1),box-shadow 0.35s ease; will-change:transform; }
-.card-3d:hover { transform:translateY(-10px) scale(1.02); box-shadow:0 30px 70px var(--shadow-color); }
+.card-3d { background:var(--bg-card); border:1px solid var(--border); border-radius:1.5rem; transition:transform 0.35s cubic-bezier(.34,1.56,.64,1),box-shadow 0.35s ease,border-color 0.3s ease; will-change:transform; }
+.card-3d:hover { transform:translateY(-8px) scale(1.01); box-shadow:0 0 0 1px rgba(14,165,233,0.35), 0 24px 60px rgba(14,165,233,0.15); border-color:rgba(14,165,233,0.3); }
 
 .section-pad { padding:3rem 0; }
 @media(min-width:768px){ .section-pad { padding:5rem 0; } }
@@ -97,3 +97,63 @@ body {
 .prose-custom ul { color:var(--text-secondary); padding-left:1.5rem; margin-bottom:1.25rem; }
 .prose-custom li { margin-bottom:0.6rem; line-height:1.75; }
 .prose-custom strong { color:var(--text-primary); font-weight:700; }
+
+/* ═══════════════════════════════════════════════════
+   ADVANCED ANIMATIONS & 3D EFFECTS
+════════════════════════════════════════════════════ */
+
+/* Shimmer gradient text */
+@keyframes shimmer { 0%{background-position:-300% center} 100%{background-position:300% center} }
+.shimmer-text { background:linear-gradient(90deg,var(--accent) 0%,var(--accent-green) 25%,var(--accent-gold) 50%,var(--accent-green) 75%,var(--accent) 100%); background-size:300% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; animation:shimmer 5s linear infinite; }
+
+/* Float animations */
+@keyframes float-slow { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-18px)} }
+@keyframes float-fast { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+@keyframes float-lr   { 0%,100%{transform:translate(0,0) rotate(0deg)} 50%{transform:translate(-10px,-12px) rotate(4deg)} }
+@keyframes morph-blob { 0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%} 50%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%} }
+@keyframes pulse-glow { 0%,100%{box-shadow:0 0 20px rgba(14,165,233,0.2)} 50%{box-shadow:0 0 60px rgba(14,165,233,0.55),0 0 100px rgba(14,165,233,0.2)} }
+@keyframes spin-slow  { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+@keyframes spin-rev   { from{transform:rotate(360deg)} to{transform:rotate(0deg)} }
+@keyframes gradient-shift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+@keyframes scan-line  { 0%{top:-4px} 100%{top:110%} }
+@keyframes fade-up    { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+.animate-float-slow  { animation:float-slow 6s ease-in-out infinite; }
+.animate-float-fast  { animation:float-fast 4s ease-in-out infinite; }
+.animate-float-lr    { animation:float-lr 7s ease-in-out infinite; }
+.animate-morph       { animation:morph-blob 8s ease-in-out infinite; }
+.animate-pulse-glow  { animation:pulse-glow 3s ease-in-out infinite; }
+.animate-spin-slow   { animation:spin-slow 20s linear infinite; }
+.animate-spin-rev    { animation:spin-rev 25s linear infinite; }
+.animate-gradient    { background-size:200% 200%; animation:gradient-shift 4s ease infinite; }
+
+/* Glow orb (decorative blurred blob) */
+.glow-orb { border-radius:50%; filter:blur(80px); pointer-events:none; position:absolute; }
+
+/* Glass card */
+.glass-card { background:rgba(255,255,255,0.08); backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.15); border-radius:1.5rem; }
+.dark .glass-card { background:rgba(21,35,55,0.5); border:1px solid rgba(56,189,248,0.15); }
+
+/* Sky-blue glow border on hover */
+.hover-grad-border { transition:box-shadow 0.3s ease, border-color 0.3s ease; }
+.hover-grad-border:hover { box-shadow:0 0 0 1.5px rgba(14,165,233,0.45), 0 18px 50px rgba(14,165,233,0.16); }
+
+/* Scanning line for tech feel */
+.scan-line { position:absolute; width:100%; height:2px; background:linear-gradient(90deg,transparent,rgba(14,165,233,0.6),transparent); animation:scan-line 3.5s linear infinite; pointer-events:none; left:0; }
+
+/* Glow text */
+.text-glow       { text-shadow:0 0 20px rgba(14,165,233,0.5),0 0 40px rgba(14,165,233,0.25); }
+.text-glow-green { text-shadow:0 0 20px rgba(16,185,129,0.5),0 0 40px rgba(16,185,129,0.25); }
+
+/* Animated underline */
+.anim-underline { position:relative; }
+.anim-underline::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:2px; background:linear-gradient(90deg,var(--accent),var(--accent-green)); border-radius:2px; transition:width 0.4s cubic-bezier(0.22,1,0.36,1); }
+.anim-underline:hover::after { width:100%; }
+
+/* Counter number style */
+.counter-num { font-size:clamp(2.5rem,5vw,4rem); font-weight:900; background:linear-gradient(135deg,var(--accent),var(--accent-green)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1; }
+
+/* 3D card perspective helpers */
+.perspective-800  { perspective:800px; }
+.perspective-1200 { perspective:1200px; }
+.preserve-3d      { transform-style:preserve-3d; }
