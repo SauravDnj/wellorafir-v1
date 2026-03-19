@@ -32,25 +32,13 @@ export default function Navbar() {
         borderBottom: scrolled ? "1px solid var(--border)" : "none",
         boxShadow: scrolled ? "0 4px 24px var(--shadow-color)" : "none",
         transition: "all 0.3s" }}>
-      <div style={{ background: "linear-gradient(135deg, var(--accent), var(--accent-light))" }} className="py-1.5 hidden sm:block">
-        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-white text-xs font-medium">
-          <a href="tel:+919898056401" className="flex items-center gap-1.5 hover:text-sky-200 transition-colors">
-            <Phone size={12} />+91 98980 56401
-          </a>
-          <span className="flex items-center gap-2">
-            <span>Mon–Fri 8AM–5PM &nbsp;|&nbsp; Sat 8AM–3PM</span>
-            <span>&nbsp;|&nbsp;</span>
-            <a href="mailto:connect@wellorafit.com" className="hover:text-sky-200 transition-colors">connect@wellorafit.com</a>
-          </span>
-        </div>
-      </div>
 
       <nav className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/">
           <Image src={theme === "dark" ? "/images/footer-logo.png" : "/images/logo-img.png"} alt="WelloraFit" width={150} height={48} className="h-11 w-auto object-contain" priority />
         </Link>
 
-        <div className="hidden lg:flex items-center gap-8">
+        {/* <div className="hidden lg:flex items-center gap-8">
           <Link href="/" className="nav-link">Home</Link>
           <Link href="/about" className="nav-link">About Us</Link>
           <div className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
@@ -59,7 +47,7 @@ export default function Navbar() {
             </button>
             <AnimatePresence>
               {servicesOpen && (
-                <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }} transition={{ duration: 0.18 }}
+                <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacit  y: 1, y: 0 }} exit={{ opacity: 0, y: 8 }} transition={{ duration: 0.18 }}
                   className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-80 rounded-2xl shadow-2xl py-2 z-50"
                   style={{ background: "var(--bg-card)", border: "1px solid var(--border)" }}>
                   {services.map((s) => (
@@ -75,7 +63,7 @@ export default function Navbar() {
           </div>
           <Link href="/blog" className="nav-link">Blog</Link>
           <Link href="/contact" className="nav-link">Contact</Link>
-        </div>
+        </div> */}
 
         <div className="flex items-center gap-3">
           <button onClick={toggleTheme} className="w-9 h-9 rounded-full flex items-center justify-center transition-all"
@@ -83,7 +71,7 @@ export default function Navbar() {
             {theme === "light" ? <Moon size={17} /> : <Sun size={17} />}
           </button>
           <div className="hidden lg:block">
-            <Link href="https://connect.wellorafit.com/health-journey-starts-today" className="btn-primary text-sm py-2.5 px-5">
+            <Link href="https://connect.wellorafit.com/health-journey-starts-today" className="btn-primary text-sm py-2.5 px-5" style={{ background: 'rgb(26, 82, 118)' }}>
               Get Appointment
             </Link>
           </div>

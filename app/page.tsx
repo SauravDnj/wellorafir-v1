@@ -399,7 +399,7 @@ export default function HomePage() {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           MARQUEE STRIP
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="bg-blue-600 py-4 overflow-hidden">
+      {/* <div className="bg-blue-600 py-4 overflow-hidden">
         <div className="flex items-center gap-10 whitespace-nowrap animate-[marquee_22s_linear_infinite]">
           {[...Array(4)].flatMap((_, r) =>
             ["Doctor-Led Care", "Certified Nutritionists", "Personal Trainers", "Lifestyle Coaching", "100% Personalised", "Clinically Proven Results", "500+ Happy Clients"].map((t, i) => (
@@ -409,7 +409,7 @@ export default function HomePage() {
             ))
           )}
         </div>
-      </div>
+      </div> */}
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           PILLARS / SERVICES
@@ -668,7 +668,7 @@ export default function HomePage() {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           PRICING
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section style={{ background: "#FAF9F3" }} className="py-28">
+      {/* <section style={{ background: "#FAF9F3" }} className="py-28">
         <div className="container mx-auto px-6 lg:px-20">
           <FadeIn>
             <div className="text-center mb-16">
@@ -731,7 +731,7 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           TESTIMONIALS
